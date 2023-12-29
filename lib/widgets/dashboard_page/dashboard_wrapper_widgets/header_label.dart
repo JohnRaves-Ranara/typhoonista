@@ -3,7 +3,6 @@ import 'package:typhoonista/assets/themes/textStyles.dart';
 
 class header_label extends StatelessWidget {
   const header_label({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -32,7 +31,7 @@ class header_label extends StatelessWidget {
           SizedBox(
             width: 30,
           ),
-          Text("5:46 pm",
+          Text("5:34 pm",
               style: textStyles.lato_bold(color: Colors.black, fontSize: 20)),
         ],
       ),
