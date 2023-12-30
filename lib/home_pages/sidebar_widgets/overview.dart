@@ -54,10 +54,13 @@ class overview extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "OVERVIEW",
-            style: textStyles.lato_regular(
-                color: Colors.grey.shade400, fontSize: 12),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
+              "OVERVIEW",
+              style: textStyles.lato_regular(
+                  color: Colors.grey.shade400, fontSize: 12),
+            ),
           ),
           SizedBox(
             height: 14,
@@ -66,20 +69,25 @@ class overview extends StatelessWidget {
             shrinkWrap: true,
             itemCount: icons.length,
             itemBuilder: (context, index) {
-              return Container(
-                margin: (index==icons.length-1) ? null : EdgeInsets.only(bottom: 12),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 22,
-                      width: 22,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    labels[index]
-                  ],
+              return Ink(
+                // color: Colors.purple,
+                height: 50,
+                child: InkWell(
+                  onTap: ((){}),
+                  child: Row(
+                    children: [
+                      SizedBox(width: 20,),
+                      Container(
+                        height: 22,
+                        width: 22,
+                        color: Colors.black,
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      labels[index]
+                    ],
+                  ),
                 ),
               );
             },

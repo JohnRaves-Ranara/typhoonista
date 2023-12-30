@@ -25,7 +25,7 @@ class dashboard_content extends StatelessWidget {
             )),
           ),
           SizedBox(
-            width: 20,
+            width: 15 ,
           ),
           Expanded(
             child: Container(
@@ -33,7 +33,7 @@ class dashboard_content extends StatelessWidget {
                 children: [
                   weather_forecast(),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   history()
                 ],

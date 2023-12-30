@@ -10,7 +10,7 @@ class dashboard_page extends StatelessWidget {
     return Expanded(
       child: Container(
         color: Color(0xfff6f6f6),
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+        padding: EdgeInsets.all(20),
         child: Column(
           children: [
             header(),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/Home.dart';
+import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content_widgets/barChart.dart';
+import 'package:typhoonista/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: Home(),
     );
   }
 }

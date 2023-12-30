@@ -11,7 +11,7 @@ class header extends StatelessWidget {
     return Container(
       height: 78,
       width: double.infinity,
-      margin: EdgeInsets.only(bottom: 30),
+      margin: EdgeInsets.only(bottom: 20),
       child: Row(
         children: [
           header_label(),
