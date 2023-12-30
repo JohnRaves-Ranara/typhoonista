@@ -49,19 +49,15 @@ class overview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 70),
-
       // height: 300,
       // color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Text(
-              "OVERVIEW",
-              style: textStyles.lato_regular(
-                  color: Colors.grey.shade400, fontSize: 12),
-            ),
+          Text(
+            "OVERVIEW",
+            style: textStyles.lato_regular(
+                color: Colors.grey.shade400, fontSize: 12),
           ),
           SizedBox(
             height: 14,
@@ -70,24 +66,20 @@ class overview extends StatelessWidget {
             shrinkWrap: true,
             itemCount: icons.length,
             itemBuilder: (context, index) {
-              return InkWell(
-                onTap: ((){}),
-                child: Container(
-                  padding: EdgeInsets.only(left: 20),
-                  height: 50,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 22,
-                        width: 22,
-                        color: Colors.black,
-                      ),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      labels[index]
-                    ],
-                  ),
+              return Container(
+                margin: (index==icons.length-1) ? null : EdgeInsets.only(bottom: 12),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 22,
+                      width: 22,
+                      color: Colors.black,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    labels[index]
+                  ],
                 ),
               );
             },

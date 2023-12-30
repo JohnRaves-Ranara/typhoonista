@@ -34,13 +34,10 @@ class settings extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Text(
-              "SETTINGS",
-              style: textStyles.lato_regular(
-                  color: Colors.grey.shade400, fontSize: 12),
-            ),
+          Text(
+            "SETTINGS",
+            style: textStyles.lato_regular(
+                color: Colors.grey.shade400, fontSize: 12),
           ),
           SizedBox(
             height: 14,
@@ -49,24 +46,20 @@ class settings extends StatelessWidget {
             shrinkWrap: true,
             itemCount: icons.length,
             itemBuilder: (context, index) {
-              return InkWell(
-                onTap: ((){}),
-                child: Container(
-                  padding: EdgeInsets.only(left: 20),
-                  height: 50,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 22,
-                        width: 22,
-                        color: (index==icons.length) ? Colors.red : Colors.black,
-                      ),
-                      SizedBox(
-                        width: 16,
-                      ),
-                      labels[index]
-                    ],
-                  ),
+              return Container(
+                margin: (index==icons.length-1) ? null : EdgeInsets.only(bottom: 12),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 22,
+                      width: 22,
+                      color: (index==icons.length) ? Colors.red : Colors.black,
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    labels[index]
+                  ],
                 ),
               );
             },

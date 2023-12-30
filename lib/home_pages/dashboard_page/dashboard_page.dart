@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:typhoonista/widgets/dashboard_page/dashboard_wrapper_widgets/header.dart';
+import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content.dart';
+import 'package:typhoonista/home_pages/dashboard_page/widgets/header.dart';
 
-class dashboard_wrapper extends StatelessWidget {
-  const dashboard_wrapper({super.key});
+class dashboard_page extends StatelessWidget {
+  const dashboard_page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,8 @@ class dashboard_wrapper extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
         child: Column(
           children: [
-            header()
+            header(),
+            dashboard_content()
           ],
         ),
       ),

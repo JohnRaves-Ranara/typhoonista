@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:typhoonista/widgets/dashboard_page/dashboard_wrapper.dart';
-import 'widgets/dashboard_page/sidebar.dart';
+import 'package:typhoonista/home_pages/dashboard_page/dashboard_page.dart';
+import 'home_pages/sidebar.dart';
 
-class Dashboard extends StatefulWidget {
-  const Dashboard({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<Home> createState() => _HomeState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,10 @@ class _DashboardState extends State<Dashboard> {
         child: Row(
           children: [
             sidebar(),
-            dashboard_wrapper()
+
+            //todo: widget below is conditional based on sidebar page selection
+            //use provider and whistle
+            dashboard_page()
             ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:typhoonista/assets/themes/textStyles.dart';
-import 'package:typhoonista/widgets/dashboard_page/dashboard_wrapper_widgets/header_label.dart';
-import 'package:typhoonista/widgets/dashboard_page/dashboard_wrapper_widgets/header_user_section.dart';
+import 'package:typhoonista/home_pages/dashboard_page/widgets/header_widgets/header_label.dart';
+import 'package:typhoonista/home_pages/dashboard_page/widgets/header_widgets/header_user_section.dart';
+
 
 class header extends StatelessWidget {
   const header({super.key});
@@ -11,6 +11,7 @@ class header extends StatelessWidget {
     return Container(
       height: 78,
       width: double.infinity,
+      margin: EdgeInsets.only(bottom: 30),
       child: Row(
         children: [
           header_label(),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:typhoonista/widgets/dashboard_page/sidebar_widgets/settings.dart';
+import 'package:typhoonista/home_pages/sidebar_widgets/settings.dart';
 import 'sidebar_widgets/overview.dart';
 import 'sidebar_widgets/logo.dart';
 
@@ -11,7 +11,7 @@ class sidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(border: Border(right: BorderSide(color: Colors.grey.shade300, style: BorderStyle.solid, width: 2))),
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       height: double.infinity,
       width: 225,
       child: Column(
