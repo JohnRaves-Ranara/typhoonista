@@ -38,6 +38,9 @@ dependencies:
   fl_chart:
   syncfusion_flutter_charts:
   uuid:
+  provider:
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.13.6
 
 dev_dependencies:
   flutter_test:

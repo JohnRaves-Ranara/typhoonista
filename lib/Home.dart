@@ -17,15 +17,18 @@ class _HomeState extends State<Home> {
         decoration: BoxDecoration(
             // border: Border.all(
             //     color: Colors.green, width: 10, style: BorderStyle.solid)
-                ),
+            ),
         child: Row(
           children: [
-            sidebar(),
+            Expanded(
+              flex: 15, child: sidebar()),
 
             //todo: widget below is conditional based on sidebar page selection
             //use provider and whistle
-            dashboard_page()
-            ],
+            Expanded(
+              flex: 85,
+              child: dashboard_page())
+          ],
         ),
       ),
     );

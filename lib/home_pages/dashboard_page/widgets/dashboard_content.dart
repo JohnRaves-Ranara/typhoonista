@@ -4,9 +4,14 @@ import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content_
 import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content_widgets/recorded_typhoons.dart';
 import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content_widgets/weather_forecast.dart';
 
-class dashboard_content extends StatelessWidget {
+class dashboard_content extends StatefulWidget {
   const dashboard_content({super.key});
 
+  @override
+  State<dashboard_content> createState() => _dashboard_contentState();
+}
+
+class _dashboard_contentState extends State<dashboard_content> {
   @override
   Widget build(BuildContext context) {
     return Expanded(

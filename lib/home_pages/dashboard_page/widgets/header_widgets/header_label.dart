@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
 
-class header_label extends StatelessWidget {
+class header_label extends StatefulWidget {
   const header_label({super.key});
 
+  @override
+  State<header_label> createState() => _header_labelState();
+}
+
+class _header_labelState extends State<header_label> {
   @override
   Widget build(BuildContext context) {
     return Expanded(

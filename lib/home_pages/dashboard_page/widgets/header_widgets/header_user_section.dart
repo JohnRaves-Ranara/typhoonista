@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
 
-class header_user_section extends StatelessWidget {
+class header_user_section extends StatefulWidget {
   const header_user_section({super.key});
 
+  @override
+  State<header_user_section> createState() => _header_user_sectionState();
+}
+
+class _header_user_sectionState extends State<header_user_section> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
+import 'package:typhoonista/entities/DamageCostBar.dart';
+import '../../../../providers/sample_provider.dart';
+import 'package:provider/provider.dart';
 
-class recent_estimation extends StatelessWidget {
+class recent_estimation extends StatefulWidget {
   const recent_estimation({super.key});
 
+  @override
+  State<recent_estimation> createState() => _recent_estimationState();
+}
+
+class _recent_estimationState extends State<recent_estimation> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -95,7 +103,44 @@ class recent_estimation extends StatelessWidget {
                                     child: Ink(
                                       child: InkWell(
                                         borderRadius: BorderRadius.circular(10),
-                                        onTap: (() {}),
+                                        onTap: (() {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                                    title: Text(
+                                                        "Delete confirmation",style:
+                                                          textStyles.lato_black(
+                                                              fontSize: 20) ),
+                                                    content: Text(
+                                                      "Are you sure you want to delete this computation?",
+                                                      style:
+                                                          textStyles.lato_regular(
+                                                              fontSize: 20),
+                                                    
+                                                    ),
+                                                    actions: [
+                                                      Container(
+                                                        height: 40,
+                                                        child: TextButton(
+                                                          style: TextButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                                          onPressed: ((){
+                                                          Navigator.pop(context);
+                                                        }), child: Text("Cancel", style: textStyles.lato_regular(fontSize: 16))),
+                                                      ),
+                                                      Container(
+                                                        height: 40,
+                                                        child: TextButton(
+                                                          style: TextButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                                                          onPressed: ((){
+                                                          Navigator.pop(context);
+                                                        }), child: Text("Delete", style: textStyles.lato_regular(fontSize: 16))),
+                                                      )
+                                                    ],
+                                                    );
+                                              });
+                                        }),
                                         child: Center(
                                           child: Text(
                                             "DELETE COMPUTATION",
@@ -117,7 +162,7 @@ class recent_estimation extends StatelessWidget {
                                     color: Colors.white,
                                     child: Ink(
                                       child: InkWell(
-                                        onTap: ((){}),
+                                        onTap: (() {}),
                                         borderRadius: BorderRadius.circular(10),
                                         child: Center(
                                           child: Text(
@@ -140,7 +185,19 @@ class recent_estimation extends StatelessWidget {
                                     color: Colors.white,
                                     child: Ink(
                                       child: InkWell(
-                                        onTap: ((){}),
+                                        onTap: (() {
+                                          //todo - tochange
+                                          List<DamageCostBar> newDamageCosts = [
+                                            DamageCostBar("Gerome", 6942069),
+                                            DamageCostBar("Bruh!", 8102934),
+                                            DamageCostBar("Hulu", 2187659),
+                                            DamageCostBar("Gerome", 6942069),
+                                            DamageCostBar("Bruh!", 8102934),
+                                            DamageCostBar("Hulu", 2187659)
+                                          ];
+                                          context.read<SampleProvider>().changeDamageCostBarsList(newDamageCosts);
+                                          print(context.read<SampleProvider>().damageCostBars);
+                                        }),
                                         borderRadius: BorderRadius.circular(10),
                                         child: Center(
                                           child: Text(

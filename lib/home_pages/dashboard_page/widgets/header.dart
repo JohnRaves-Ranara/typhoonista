@@ -3,9 +3,14 @@ import 'package:typhoonista/home_pages/dashboard_page/widgets/header_widgets/hea
 import 'package:typhoonista/home_pages/dashboard_page/widgets/header_widgets/header_user_section.dart';
 
 
-class header extends StatelessWidget {
+class header extends StatefulWidget {
   const header({super.key});
 
+  @override
+  State<header> createState() => _headerState();
+}
+
+class _headerState extends State<header> {
   @override
   Widget build(BuildContext context) {
     return Container(

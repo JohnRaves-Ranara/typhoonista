@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
 import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content_widgets/barChart.dart';
 
-class recorded_typhoons extends StatelessWidget {
+class recorded_typhoons extends StatefulWidget {
   const recorded_typhoons({super.key});
 
+  @override
+  State<recorded_typhoons> createState() => _recorded_typhoonsState();
+}
+
+class _recorded_typhoonsState extends State<recorded_typhoons> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -14,7 +19,7 @@ class recorded_typhoons extends StatelessWidget {
             decoration: BoxDecoration(
               // color: Colors.red.shade100,
               borderRadius: BorderRadius.circular(26),
-              border: Border.all(color: Colors.grey.shade400, width: 1, style: BorderStyle.solid)
+              color: Colors.white
             ),
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
