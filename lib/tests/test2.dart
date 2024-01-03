@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
-import 'package:typhoonista/test.dart';
+import 'package:typhoonista/tests/test.dart';
 import 'package:uuid/uuid.dart';
-import 'providers/sample_provider.dart';
+import '../providers/sample_provider.dart';
 import 'package:provider/provider.dart';
-import 'entities/DamageCostBar.dart';
+import '../entities/DamageCostBar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class test2 extends StatefulWidget {

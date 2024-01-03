@@ -1,11 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:typhoonista/Home.dart';
-import 'package:typhoonista/test.dart';
+import 'package:typhoonista/tests/screen1.dart';
+import 'package:typhoonista/tests/test.dart';
 import 'package:provider/provider.dart';
+import 'package:typhoonista/tests/textDataProvider.dart';
 import 'providers/sample_provider.dart';
-import 'test2.dart';
+import 'tests/test2.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:typhoonista/providers/page_provider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +30,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => SampleProvider())
+        ChangeNotifierProvider(create: (context) => SampleProvider()),
+        ChangeNotifierProvider(create: (context) => TextDataProvider()),
+        ChangeNotifierProvider(create: (context) => page_provider())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/home_pages/dashboard_page/dashboard_page.dart';
+import 'package:typhoonista/home_pages/dashboard_page/widgets/dashboard_content_widgets/history.dart';
+import 'package:typhoonista/home_pages/documents_page/documents_page.dart';
+import 'package:typhoonista/home_pages/estimator_page/estimator_page.dart';
+import 'package:typhoonista/home_pages/history_page/history_page.dart';
+import 'package:typhoonista/home_pages/settings_page/settings_page.dart';
 import 'home_pages/sidebar.dart';
+import 'package:provider/provider.dart';
+import 'package:typhoonista/providers/page_provider.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
@@ -11,26 +18,55 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            // border: Border.all(
-            //     color: Colors.green, width: 10, style: BorderStyle.solid)
-            ),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 15, child: sidebar()),
+  void initState() {
+    super.initState();
+    print("INITSTATE HOME");
+  }
 
-            //todo: widget below is conditional based on sidebar page selection
-            //use provider and whistle
-            Expanded(
-              flex: 85,
-              child: dashboard_page())
-          ],
-        ),
-      ),
+  @override
+  Widget build(BuildContext context) {
+    print("BUILD HOME");
+    return Consumer<page_provider>(
+      builder: (context, pageProv, child) {
+        // Widget? pageToBeDisplayed;
+        // switch(pageProv.page){
+        //   case(1):
+        //   pageToBeDisplayed = dashboard_page();
+        //   break;
+        //   case(2):
+        //   pageToBeDisplayed = estimator_page();
+        //   break;
+        //   case(3):
+        //   pageToBeDisplayed = history_page();
+        //   break;
+        //   case(4):
+        //   pageToBeDisplayed = documents_page();
+        //   break;
+        //   case(5):
+        //   pageToBeDisplayed = settings_page();
+        //   break;
+        //   default:
+        //   print("HOME DEFAULT");
+          
+        // }
+        return Scaffold(
+          body: Container(
+            decoration: BoxDecoration(
+                // border: Border.all(
+                //     color: Colors.green, width: 10, style: BorderStyle.solid)
+                ),
+            child: Row(
+              children: [
+                Expanded(flex: 15, child: sidebar()),
+
+                //todo: widget below is conditional based on sidebar page selection
+                //use provider and whistle
+                Expanded(flex: 85, child: estimator_page())
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

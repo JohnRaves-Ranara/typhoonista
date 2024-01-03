@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
+import 'package:typhoonista/home_pages/dashboard_page/dashboard_page.dart';
+import 'package:typhoonista/home_pages/documents_page/documents_page.dart';
+import 'package:typhoonista/home_pages/estimator_page/estimator_page.dart';
+import 'package:typhoonista/home_pages/history_page/history_page.dart';
+import 'package:provider/provider.dart';
+import 'package:typhoonista/providers/page_provider.dart';
 
 class overview extends StatelessWidget {
   overview({super.key});
@@ -74,7 +80,9 @@ class overview extends StatelessWidget {
                 // color: Colors.purple,
                 height: 50,
                 child: InkWell(
-                  onTap: ((){}),
+                  onTap: ((){
+                    // context.read<page_provider>().changePage(index+1);
+                  }),
                   child: Row(
                     children: [
                       SizedBox(width: 20,),

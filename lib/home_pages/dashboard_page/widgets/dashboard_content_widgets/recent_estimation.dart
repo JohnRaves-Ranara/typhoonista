@@ -58,7 +58,7 @@ class _recent_estimationState extends State<recent_estimation> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Typhoon Skemberlu    |    Day 5",
+                                    "Typhoon Skemberlu    |    Aklan    |    Day 5",
                                     style: textStyles.lato_bold(
                                         color: Colors.white, fontSize: 20),
                                   ),
