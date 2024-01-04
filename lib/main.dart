@@ -14,12 +14,18 @@ import 'package:typhoonista/providers/page_provider.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+      // name: "typhoonistathesis3",
       // ignore: prefer_const_constructors
       options: FirebaseOptions(
           apiKey: "AIzaSyCF_OtQ6GOCV4iQOX5fF5OEvHzEfoFMlnk",
           appId: "1:1031953287185:web:cbfaf9f907c8f73327c9b0",
           messagingSenderId: "1031953287185",
-          projectId: "typhoonista-f094b"));
+          projectId: "typhoonista-f094b"
+          // apiKey: "AIzaSyBSn3pTQvHIDuS1yN1tph1gpFeidCuw5Ko",
+          // projectId: "typhoonistadb",
+          // messagingSenderId: "598391340065",
+          // appId: "1:598391340065:web:b20f6cf51eb55d5f9c3760"
+          ));
 
   Provider.debugCheckInvalidValueType = null;
   runApp(const MyApp());
@@ -42,7 +48,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: LoginScreen(),
+        home: Home(),
       ),
     );
   }

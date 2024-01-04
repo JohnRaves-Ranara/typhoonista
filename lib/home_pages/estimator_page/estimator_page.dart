@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:typhoonista/assets/themes/textStyles.dart';
+import 'package:typhoonista/services/FirestoreService.dart';
 
 class estimator_page extends StatefulWidget {
   const estimator_page({super.key});
@@ -9,6 +10,10 @@ class estimator_page extends StatefulWidget {
 }
 
 class _estimator_pageState extends State<estimator_page> {
+  final typhoonNameCtlr = TextEditingController();
+  final windspeedCtlr = TextEditingController();
+  final rainfallCtlr = TextEditingController();
+  final locationCtlr = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,56 +51,104 @@ class _estimator_pageState extends State<estimator_page> {
                   children: [
                     Expanded(
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
+                      padding: EdgeInsets.symmetric(horizontal: 30),
                       // color: Colors.green,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Add New Typhoon", style: textStyles.lato_black(fontSize: 30),),
-                          SizedBox(height: 25,),
+                          Text(
+                            "Add New Typhoon",
+                            style: textStyles.lato_black(fontSize: 30),
+                          ),
+                          SizedBox(
+                            height: 25,
+                          ),
                           TextField(
+                            controller: typhoonNameCtlr,
                             decoration: InputDecoration(
-                              labelStyle: textStyles.lato_light(color: Colors.grey.withOpacity(0.9)),
+                                labelStyle: textStyles.lato_light(
+                                    color: Colors.grey.withOpacity(0.9)),
                                 border: OutlineInputBorder(),
                                 labelText: "Name"),
                           ),
-                          SizedBox(height: 20,),  
+                          SizedBox(
+                            height: 20,
+                          ),
                           TextField(
+                            controller: windspeedCtlr,
                             decoration: InputDecoration(
-                              labelStyle: textStyles.lato_light(color: Colors.grey.withOpacity(0.9)),
+                                labelStyle: textStyles.lato_light(
+                                    color: Colors.grey.withOpacity(0.9)),
                                 border: OutlineInputBorder(),
                                 labelText: "Peak Windspeed"),
                           ),
-                          SizedBox(height: 20,), 
+                          SizedBox(
+                            height: 20,
+                          ),
                           TextField(
+                            controller: rainfallCtlr,
                             decoration: InputDecoration(
-                              labelStyle: textStyles.lato_light(color: Colors.grey.withOpacity(0.9)),
+                                labelStyle: textStyles.lato_light(
+                                    color: Colors.grey.withOpacity(0.9)),
                                 border: OutlineInputBorder(),
                                 labelText: "Peak Rainfall"),
                           ),
-                          SizedBox(height: 20,), 
+                          SizedBox(
+                            height: 20,
+                          ),
                           TextField(
+                            controller: locationCtlr,
                             decoration: InputDecoration(
-                              labelStyle: textStyles.lato_light(color: Colors.grey.withOpacity(0.9)),
+                                labelStyle: textStyles.lato_light(
+                                    color: Colors.grey.withOpacity(0.9)),
                                 border: OutlineInputBorder(),
                                 labelText: "Location"),
                           ),
-                          SizedBox(height: 20,), 
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 30),
-                            decoration: BoxDecoration(
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Material(
                               color: Colors.blue,
-                              borderRadius: BorderRadius.circular(8)
-                            ),
-                            width: double.maxFinite,
-                            height: 55,
-                            child: Row(
-                              children: [
-                                Text("Estimate Damage Cost", style: textStyles.lato_bold(fontSize: 20, color: Colors.white),),
-                                Spacer(),
-                                Icon(Icons.arrow_right_alt_sharp, size: 40, color: Colors.white,)
-                              ],
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(8),
+                                onTap: (() {
+                                  FirestoreService().addDay(
+                                      typhoonId: null,
+                                      typhoonName: typhoonNameCtlr.text.trim(),
+                                      windSpeed: double.parse(windspeedCtlr.text.trim()),
+                                      rainfall: double.parse(rainfallCtlr.text.trim()),
+                                      location: locationCtlr.text.trim(),
+                                      isFirstDay: true
+                                      );
+                                  typhoonNameCtlr.clear();
+                                  windspeedCtlr.clear();
+                                  rainfallCtlr.clear();
+                                  locationCtlr.clear();
+                                }),
+                                child: Ink(
+                                  padding: EdgeInsets.symmetric(horizontal: 30),
+                                  width: double.maxFinite,
+                                  height: 55,
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Estimate Damage Cost",
+                                        style: textStyles.lato_bold(
+                                            fontSize: 20, color: Colors.white),
+                                      ),
+                                      Spacer(),
+                                      Icon(
+                                        Icons.arrow_right_alt_sharp,
+                                        size: 40,
+                                        color: Colors.white,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           )
                         ],
