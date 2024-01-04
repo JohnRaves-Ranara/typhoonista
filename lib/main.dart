@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:typhoonista/Home.dart';
+import 'package:typhoonista/LoginScreen.dart';
 import 'package:typhoonista/tests/screen1.dart';
 import 'package:typhoonista/tests/test.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Home(),
+        home: LoginScreen(),
       ),
     );
   }
